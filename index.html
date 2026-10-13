@@ -309,8 +309,9 @@ body{
         <button class="key" onclick="add('2')">2</button>
         <button class="key" onclick="add('3')">3</button>
 
-        <button class="key zero" onclick="add('0')">0</button>
-        <button class="key" onclick="add('.')">.</button>
+       <button class="key" onclick="toggleMinus()">±</button>
+<button class="key" onclick="add('0')">0</button>
+<button class="key" onclick="add('.')">.</button>
 
     </div>
 
@@ -389,6 +390,18 @@ function backspace(){
     calculate();
 }
 
+function toggleMinus(){
+
+    if(currentInput.startsWith("-")){
+        currentInput = currentInput.substring(1);
+    }else{
+        currentInput = "-" + currentInput;
+    }
+
+    calculate();
+}
+
+    
 function clearInput(){
 
     currentInput = "0";

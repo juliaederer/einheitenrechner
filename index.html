@@ -147,7 +147,7 @@ body{
 
     .left{
         width:100% !important;
-        flex:1;
+        height:50vh;
         overflow-y:auto;
         border-right:none;
         border-bottom:3px solid #d0d7e2;
@@ -179,7 +179,6 @@ body{
     }
 }
 
-</style>
     
 </style>
 </head>
@@ -309,8 +308,8 @@ body{
         <button class="key" onclick="add('2')">2</button>
         <button class="key" onclick="add('3')">3</button>
 
-       <button class="key" onclick="toggleMinus()">±</button>
-<button class="key" onclick="add('0')">0</button>
+<button class="key" onclick="toggleMinus()">±</button>
+<button class="key zero" onclick="add('0')">0</button>
 <button class="key" onclick="add('.')">.</button>
 
     </div>
@@ -401,6 +400,7 @@ function toggleMinus(){
     calculate();
 }
 
+   
     
 function clearInput(){
 

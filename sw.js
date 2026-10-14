@@ -1,4 +1,4 @@
-const CACHE_NAME = "einheitenrechner-v4";
+const CACHE_NAME = "einheitenrechner-v5";
 
 const FILES_TO_CACHE = [
   "./",

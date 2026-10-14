@@ -4,190 +4,216 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <title>Einheitenrechner</title>
 
 <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2f5fa7">
-
+<meta name="theme-color" content="#2f5fa7">
 <meta name="apple-mobile-web-app-capable" content="yes">
-
 <meta name="apple-mobile-web-app-title" content="Einheitenrechner">
 
-    
 <style>
-:root{
-    --bg:#edf2f7;
-    --card:#ffffff;
-    --primary:#2f5fa7;
-    --accent:#ff8c00;
-    --row1:#eef8fb;
-    --row2:#dff2f7;
+:root {
+    --bg: #edf2f7;
+    --card: #ffffff;
+    --primary: #2f5fa7;
+    --accent: #ff8c00;
+    --row1: #eef8fb;
+    --row2: #dff2f7;
 }
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:"Segoe UI", Arial, sans-serif;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
-body{
-    background:var(--bg);
-    height:100vh;
-    overflow:auto;
+body {
+    background: var(--bg);
+    height: 100vh;
+    overflow: auto;
 }
 
-.container{
-    display:flex;
-    height:100vh;
+.container {
+    display: flex;
+    height: 100vh;
 }
 
-.left{
-    width:50%;
-    padding:20px;
-    overflow-y:auto;
-    border-right:3px solid #d0d7e2;
+.left {
+    width: 50%;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 3px solid #d0d7e2;
 }
 
-.right{
-    width:50%;
-    padding:20px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:16px;
+.right {
+    width: 50%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
 }
 
-.group{
-    background:var(--card);
-    border-radius:16px;
-    overflow:hidden;
-    margin-bottom:18px;
-    box-shadow:0 4px 10px rgba(0,0,0,.08);
+.group {
+    background: var(--card);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
 }
 
-.header{
-    background:var(--primary);
-    color:white;
-    padding:12px 16px;
-    font-size:22px;
-    font-weight:600;
+.header {
+    background: var(--primary);
+    color: white;
+    padding: 12px 16px;
+    font-size: 22px;
+    font-weight: 600;
 }
 
-.field{
-    min-height:78px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 20px;
-    cursor:pointer;
-    border-left:6px solid transparent;
+.field {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    cursor: pointer;
+    border-left: 6px solid transparent;
 }
 
-.field:nth-child(2){
-    background:var(--row1);
+.field:nth-child(2) {
+    background: var(--row1);
 }
 
-.field:nth-child(3){
-    background:var(--row2);
+.field:nth-child(3) {
+    background: var(--row2);
 }
 
-.field.active{
-    background:#fff6e7;
-    border-left:6px solid var(--accent);
+.field.active {
+    background: #fff6e7;
+    border-left: 6px solid var(--accent);
 }
 
-.label{
-    font-size:22px;
-    font-weight:600;
+.label {
+    font-size: 22px;
+    font-weight: 600;
 }
 
-.value{
-    font-size:32px;
-    font-weight:700;
+.value {
+    font-size: 32px;
+    font-weight: 700;
 }
 
-.key{
-    border:none;
-    border-radius:18px;
-    background:white;
-    font-size:42px;
-    font-weight:600;
-    cursor:pointer;
-    box-shadow:0 4px 10px rgba(0,0,0,.12);
+.key {
+    border: none;
+    border-radius: 18px;
+    background: white;
+    font-size: 42px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .12);
 }
 
-.key:active{
-    transform:scale(.97);
+.key:active {
+    transform: scale(.97);
 }
 
-.function{
-    background:#2f5fa7;
-    color:white;
+.function {
+    background: #2f5fa7;
+    color: white;
 }
 
-.clear{
-    background:#cf2e2e;
-    color:white;
+.clear {
+    background: #cf2e2e;
+    color: white;
 }
 
-.zero{
-    grid-column:span 2;
+.zero {
+    grid-column: span 2;
 }
 
-
-
-@media (max-width: 900px){
-
-    .container{
-        display:flex;
-        flex-direction:column;
-        height:100vh;
+@media (orientation: portrait) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
     }
 
-    .left{
-        width:100% !important;
-        height:50vh;
-        overflow-y:auto;
-        border-right:none;
-        border-bottom:3px solid #d0d7e2;
+    .left {
+        width: 100% !important;
+        height: 50vh;
+        overflow-y: auto;
+        border-right: none;
+        border-bottom: 3px solid #d0d7e2;
     }
 
-    .right{
-        width:100% !important;
-        height:50vh;
-        flex-shrink:0;
-
-        display:grid;
-        grid-template-columns:repeat(3,1fr);
-        grid-template-rows:repeat(5,1fr);
-
-        gap:10px;
-        padding:10px;
+    .right {
+        width: 100% !important;
+        height: 50vh;
+        flex-shrink: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 10px;
+        padding: 10px;
     }
 
-    .label{
-        font-size:16px;
+    .label {
+        font-size: 16px;
     }
 
-    .value{
-        font-size:20px;
+    .value {
+        font-size: 20px;
     }
 
-    .key{
-        font-size:30px;
+    .key {
+        font-size: 30px;
     }
 }
 
-    
+@media (max-width: 900px) and (orientation: landscape) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+    }
+
+    .left {
+        width: 50% !important;
+        height: 100vh;
+        overflow-y: auto;
+        border-right: 3px solid #d0d7e2;
+        border-bottom: none;
+    }
+
+    .right {
+        width: 50% !important;
+        height: 100vh;
+        flex-shrink: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .label {
+        font-size: 18px;
+    }
+
+    .value {
+        font-size: 22px;
+    }
+
+    .key {
+        font-size: 34px;
+    }
+}
 </style>
 </head>
 <body>
 
 <div class="container">
-
     <div class="left">
-
         <div class="group">
             <div class="header">Länge</div>
 
@@ -287,14 +313,12 @@ body{
                 <span class="value">0 psi</span>
             </div>
         </div>
-
     </div>
 
     <div class="right">
-
         <button class="key function" onclick="backspace()">⌫</button>
         <button class="key clear" onclick="clearInput()">CLR</button>
-        <div></div>
+        <button class="key" onclick="toggleMinus()">−</button>
 
         <button class="key" onclick="add('7')">7</button>
         <button class="key" onclick="add('8')">8</button>
@@ -308,165 +332,138 @@ body{
         <button class="key" onclick="add('2')">2</button>
         <button class="key" onclick="add('3')">3</button>
 
-<button class="key" onclick="toggleMinus()">±</button>
-<button class="key zero" onclick="add('0')">0</button>
-<button class="key" onclick="add('.')">.</button>
-
+        <button class="key" onclick="toggleMinus()">-</button>
+        <button class="key zero" onclick="add('0')">0</button>
+        <button class="key" onclick="add('.')">.</button>
     </div>
-
 </div>
 
 <script>
-
 let activeField = document.querySelector(".field.active");
 let currentInput = "0";
 
 const units = {
-    mm:"mm",
-    in:"in",
-    c:"°C",
-    f:"°F",
-    kg:"kg",
-    lb:"lb",
-    n:"N",
-    lbf:"lbf",
-    bar:"bar",
-    psi:"psi"
+    mm: "mm",
+    in: "in",
+    c: "°C",
+    f: "°F",
+    kg: "kg",
+    lb: "lb",
+    n: "N",
+    lbf: "lbf",
+    bar: "bar",
+    psi: "psi"
 };
 
 document.querySelectorAll(".field").forEach(field => {
-
     field.addEventListener("click", () => {
-
-        document.querySelectorAll(".field")
-            .forEach(f => f.classList.remove("active"));
-
+        document.querySelectorAll(".field").forEach(f => f.classList.remove("active"));
         field.classList.add("active");
         activeField = field;
-
         currentInput = field.dataset.value || "0";
     });
-
 });
 
-function formatNumber(v){
+function formatNumber(v) {
     return Number(v)
         .toFixed(4)
-        .replace(/\.?0+$/,'');
+        .replace(/\.?0+$/, '');
 }
 
-function updateField(field,val){
-
+function updateField(field, val) {
     field.dataset.value = val;
-
-    field.querySelector(".value").textContent =
-        formatNumber(val) + " " + units[field.dataset.unit];
+    field.querySelector(".value").textContent = formatNumber(val) + " " + units[field.dataset.unit];
 }
 
-function add(char){
-
-    if(char === "." && currentInput.includes(".")){
+function add(char) {
+    if (char === "." && currentInput.includes(".")) {
         return;
     }
 
-    if(currentInput === "0" && char !== "."){
+    if (currentInput === "0" && char !== ".") {
         currentInput = char;
-    }else{
+    } else {
         currentInput += char;
     }
 
     calculate();
 }
 
-function backspace(){
-
-    currentInput = currentInput.slice(0,-1);
-
-    if(currentInput === ""){
+function backspace() {
+    currentInput = currentInput.slice(0, -1);
+    if (currentInput === "") {
         currentInput = "0";
     }
-
     calculate();
 }
 
-function toggleMinus(){
-
-    if(currentInput.startsWith("-")){
+function toggleMinus() {
+    if (currentInput.startsWith("-")) {
         currentInput = currentInput.substring(1);
-    }else{
+    } else {
         currentInput = "-" + currentInput;
     }
-
     calculate();
 }
 
-   
-    
-function clearInput(){
-
+function clearInput() {
     currentInput = "0";
     calculate();
 }
 
-function calculate(){
-
+function calculate() {
     const value = parseFloat(currentInput) || 0;
-
-    updateField(activeField,value);
+    updateField(activeField, value);
 
     const group = activeField.dataset.group;
     const unit = activeField.dataset.unit;
+    const fields = document.querySelectorAll(`[data-group="${group}"]`);
 
-    const fields =
-        document.querySelectorAll(`[data-group="${group}"]`);
-
-    switch(group){
-
+    switch (group) {
         case "length":
-            if(unit === "mm"){
+            if (unit === "mm") {
                 updateField(fields[1], value / 25.4);
-            }else{
+            } else {
                 updateField(fields[0], value * 25.4);
             }
-        break;
+            break;
 
         case "temp":
-            if(unit === "c"){
-                updateField(fields[1], (value * 9/5) + 32);
-            }else{
-                updateField(fields[0], (value - 32) * 5/9);
+            if (unit === "c") {
+                updateField(fields[1], (value * 9 / 5) + 32);
+            } else {
+                updateField(fields[0], (value - 32) * 5 / 9);
             }
-        break;
+            break;
 
         case "weight":
-            if(unit === "kg"){
+            if (unit === "kg") {
                 updateField(fields[1], value * 2.20462262);
-            }else{
+            } else {
                 updateField(fields[0], value / 2.20462262);
             }
-        break;
+            break;
 
         case "force":
-            if(unit === "n"){
+            if (unit === "n") {
                 updateField(fields[1], value * 0.224808943);
-            }else{
+            } else {
                 updateField(fields[0], value / 0.224808943);
             }
-        break;
+            break;
 
         case "pressure":
-            if(unit === "bar"){
+            if (unit === "bar") {
                 updateField(fields[1], value * 14.5038);
-            }else{
+            } else {
                 updateField(fields[0], value / 14.5038);
             }
-        break;
+            break;
     }
 }
-
 </script>
 
-    <script>
+<script>
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("./sw.js")
         .then(() => console.log("Service Worker aktiv"))
